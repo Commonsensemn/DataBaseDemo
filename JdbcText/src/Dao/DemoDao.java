@@ -1,3 +1,7 @@
+package Dao;
+import Bean.UserBean;
+import Tools.JdbcConstructor;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -5,13 +9,13 @@ import java.sql.Statement;
 
 /**
  * @author: Common sense
- * @CreationTime: 2021/10/1 3:38 星期五
- * @ClassName: JdbcDay1
+ * @CreationTime: 2021/10/1 17:11 星期五
+ * @ClassName: DemoDao
  * @ClassDescription: 这是测试的类
  */
-public class JdbcDay1 {
-    public static void main(String[] args) throws Exception{
-        Connection root = DriverManager.getConnection("jdbc:mysql://localhost:8083/MySQL", "root", "root");
+public class DemoDao {
+    public ResultSet demoLogin() throws Exception{
+        Connection root = JdbcConstructor.getConnection();
         Statement statement = root.createStatement();
         statement.executeQuery("use demo");
         ResultSet resultSet = statement.executeQuery("select * from courses");
@@ -23,5 +27,15 @@ public class JdbcDay1 {
         resultSet.close();
         statement.close();
         root.close();
+        return null;
+    }
+
+    public UserBean findById(String id) {
+        return null;
+    }
+
+    public UserBean find(UserBean userBean, String sql) {
+        String phoneNum = userBean.getPhonenumber();
+        return null;
     }
 }
