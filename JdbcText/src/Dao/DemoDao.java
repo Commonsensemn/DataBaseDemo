@@ -34,8 +34,4 @@ public class DemoDao {
         return null;
     }
 
-    public UserBean find(UserBean userBean, String sql) {
-        String phoneNum = userBean.getPhonenumber();
-        return null;
-    }
 }
