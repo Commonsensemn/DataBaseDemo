@@ -1,20 +1,36 @@
 package Bean;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  * @author: Common sense
  * @CreationTime: 2021/10/1 23:56 星期五
  * @ClassName: UserBean
- * @ClassDescription: 这是测试的类
+ * @ClassDescription: user bean
  */
 public class UserBean {
-    private String userid;
+    private Integer userid;
     private String username;
     private Integer age;
     private String sex;
-    private Date birthtime;
+    private LocalDate birthtime;
     private String phonenumber;
+
+    public Integer getUserid() {
+        return userid;
+    }
+
+    public void setUserid(Integer userid) {
+        this.userid = userid;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public Integer getAge() {
         return age;
@@ -32,11 +48,11 @@ public class UserBean {
         this.sex = sex;
     }
 
-    public Date getBirthtime() {
+    public LocalDate getBirthtime() {
         return birthtime;
     }
 
-    public void setBirthtime(Date birthtime) {
+    public void setBirthtime(LocalDate birthtime) {
         this.birthtime = birthtime;
     }
 
@@ -46,13 +62,5 @@ public class UserBean {
 
     public void setPhonenumber(String phonenumber) {
         this.phonenumber = phonenumber;
-    }
-
-    public String getUserid() {
-        return userid;
-    }
-
-    public void setUserid(String userid) {
-        this.userid = userid;
     }
 }

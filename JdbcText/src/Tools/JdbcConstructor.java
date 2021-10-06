@@ -7,7 +7,7 @@ import java.util.Collection;
  * @author: Common sense
  * @CreationTime: 2021/10/1 23:10 星期五
  * @ClassName: Tools.JdbcConstructor
- * @ClassDescription: Jdbc构造器
+ * @ClassDescription: Jdbc构造器（未实现连接池）
  */
 public class JdbcConstructor {
     private static Connection conn = null;
@@ -31,6 +31,12 @@ public class JdbcConstructor {
         return conn;
     }
 
+    /**
+     * jdbc连接器销毁方法，可以统一的销毁jdgc
+     * @author: Common sense
+     * @Date: 2021/10/6 21:07
+     * @描述: jdbc连接器销毁器
+     **/
     public static void destoryConnection() {
         try {
             conn.close();
