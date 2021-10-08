@@ -20,6 +20,7 @@ public class DemoApplication {
 //        System.out.println(demoApplication.createUser());
     }
 
+
     public String login(){
         System.out.println("请输入您的账户：");
         String loginName = new Scanner(System.in).next();

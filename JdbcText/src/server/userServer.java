@@ -35,6 +35,7 @@ public class userServer implements UserServerInterface {
         userBean.setPhonenumber(phoneNumber);
         Connection connection = JdbcConstructor.getConnection();
         try {
+            assert connection != null;
             connection.setAutoCommit(false);
             DemoLoginInfoDao demoLoginInfoDao = new DemoLoginInfoDao();
             DemoUserDao demoUserDao = new DemoUserDao();
@@ -49,7 +50,7 @@ public class userServer implements UserServerInterface {
             connection.commit();
             JdbcConstructor.destoryConnection();
             return true;
-        } catch (SQLException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
             return false;
         }

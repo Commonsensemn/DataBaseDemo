@@ -1,10 +1,8 @@
 package Dao;
 
 import Bean.LoginInfoBean;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+
+import java.sql.*;
 
 /**
  * @author: Common sense
@@ -12,14 +10,16 @@ import java.sql.Statement;
  * @ClassName: DemoLoginInfoDao
  * @ClassDescription: loginInfoDao
  */
+
 public class DemoLoginInfoDao implements DemoLoginInfoDaoInterface {
+
 
     @Override
     public boolean saveLoginInfo(LoginInfoBean loginInfoBean, Connection connection) throws SQLException {
         Statement statement = connection.createStatement();
         statement.executeQuery("use demo");
-        statement.executeUpdate("insert into logininfo values (" + "'" + loginInfoBean.getId() + "','" + loginInfoBean.getLoginName() + "','" + loginInfoBean.getPassword() + "'" + ")");
-        ResultSet resultSet = statement.executeQuery("select * from logininfo where id = " + loginInfoBean.getId() + "");
+        statement.executeUpdate("insert into demo.logininfo values (" + "'" + loginInfoBean.getId() + "','" + loginInfoBean.getLoginName() + "','" + loginInfoBean.getPassword() + "'" + ")");
+        ResultSet resultSet = statement.executeQuery("select * from demo.logininfo where id = " + loginInfoBean.getId() + "");
         while (resultSet.next()){
             if (loginInfoBean.getId().equals(resultSet.getInt("id"))){
                 return true;

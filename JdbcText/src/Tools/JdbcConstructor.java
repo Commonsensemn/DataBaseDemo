@@ -1,7 +1,6 @@
 package Tools;
 
 import java.sql.*;
-import java.util.Collection;
 
 /**
  * @author: Common sense
@@ -23,9 +22,13 @@ public class JdbcConstructor {
     public static Connection getConnection() {
         if(conn == null) {
             try {
-                conn = DriverManager.getConnection("jdbc:mysql://localhost:8083/MySQL", "root", "root");
+                //Commonsense家的MySQL环境
+//                conn = DriverManager.getConnection("jdbc:mysql://localhost:8083/MySQL", "root", "root");
+                //达内MySQL环境
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/MySQL", "root", "");
             } catch(Exception e) {
                 e.printStackTrace();
+                return null;
             }
         }
         return conn;
